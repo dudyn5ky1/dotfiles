@@ -3,7 +3,9 @@
 shell:
   program: /usr/local/bin/zsh
   args:
-    - --login
+    - -l
+    - -c
+    - "tmux"
 
 key_bindings:
   - { key: N, mods: Command, action: SpawnNewInstance }
