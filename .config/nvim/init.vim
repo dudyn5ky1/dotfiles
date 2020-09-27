@@ -56,6 +56,7 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 nmap <C-Q> :NERDTreeToggle<CR>
 nmap <C-A> :NERDTreeFocus<CR>
+nmap <C-T> :split <bar> resize 20 <bar> terminal<CR>
 vmap <leader>y "*y
 nmap <leader>p "*p
 tnoremap jj <C-\><C-n>
