@@ -25,10 +25,12 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'chrisbra/Colorizer'
+Plug 'davidhalter/jedi-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
-let g:deoplete#enable_at_startup = 1
+"" General
 set number
 set relativenumber
 set hidden
@@ -56,6 +58,7 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 nmap <C-Q> :NERDTreeToggle<CR>
 nmap <C-A> :NERDTreeFocus<CR>
+nmap <C-U> :TestFile <CR>
 nmap <C-T> :split <bar> resize 20 <bar> terminal<CR>
 vmap <leader>y "*y
 nmap <leader>p "*p
@@ -88,3 +91,13 @@ let g:test#javascript#runner = 'jest'
 colorscheme dracula
 let g:dracula_colorterm = 1
 hi Normal guibg=NONE ctermbg=NONE
+
+"" Jedi vim
+" disable autocompletion, because we use deoplete for completion
+let g:jedi#completions_enabled = 0
+
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
+
+"" COC
+nmap <silent> \ge <Plug>(coc-definition)
