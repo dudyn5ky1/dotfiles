@@ -23,3 +23,4 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme dracula/zsh dracula
 
 antigen apply
+
