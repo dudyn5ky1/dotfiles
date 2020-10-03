@@ -19,6 +19,27 @@ antigen bundle git
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle timer
+antigen bundle z
+antigen bundle frontend-search
+# angular something 
+# caniuse something
+antigen bundle jira
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/jira
+antigen bundle lol
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/lol
+antigen bundle osx
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/osx
+
+antigen bundle postgres
+# stoppost - stop psql server
+# startpost - start psql server
+
+antigen bundle rails 
+# rs - rails server
+# REP - RAILS_ENV=production 
+antigen bundle thefuck
+# ESC - ESC - fix previuos command line command
 
 antigen theme dracula/zsh dracula
 
