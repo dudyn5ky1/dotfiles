@@ -1,10 +1,18 @@
-currentLang=$(xkbswitch -g)
-if [[ $currentLang -eq 3 ]]
+currentLang=$(xkbswitch -ge)
+currentIndex=0
+layouts=(ABC PolishPro Ukrainian-PC Russian)
+for i in "${!layouts[@]}"; do
+  if [[ "${layouts[$i]}" = "${currentLang}" ]]; then
+    currentIndex=($i)
+  fi
+done
+if [[ $currentIndex -eq 3 ]]
 then
-  xkbswitch -s 0
+  xkbswitch -s $layouts[0]
 else 
-  nextLang=$(($currentLang+1))
-  xkbswitch -s $nextLang
+  nextIndex=$(($currentIndex+1))
+  nextLang="${layouts[$nextIndex]}"
+  xkbswitch -se $nextLang
 fi
 osascript -e 'tell application "Übersicht" to refresh widget id "simple-bar-data-jsx"'
 
