@@ -27,6 +27,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'chrisbra/Colorizer'
 Plug 'davidhalter/jedi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'izifortune/weblink.vim'
 
 call plug#end()
 
@@ -101,3 +102,8 @@ let g:jedi#use_splits_not_buffers = "right"
 
 "" COC
 nmap <silent> \ge <Plug>(coc-definition)
+
+"" Weblink
+let g:weblink_host_url = "https://stash.ryanair.com"
+let g:weblink_host_url_prefix = "/projects/"
+
