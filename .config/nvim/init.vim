@@ -77,6 +77,10 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
 let g:gitgutter_override_sign_column_highlight = 0
+
+"" Open vim fugitive diff in vertical splits
+set diffopt+=vertical
+
 let NERDTreeShowHidden=1
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
 let g:ale_fix_on_save = 1
