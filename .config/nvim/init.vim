@@ -27,7 +27,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'chrisbra/Colorizer'
 Plug 'davidhalter/jedi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'izifortune/weblink.vim'
+Plug 'dudyn5ky1/weblink.vim'
 
 call plug#end()
 
@@ -111,3 +111,6 @@ nmap <silent> \ge <Plug>(coc-definition)
 let g:weblink_host_url = "https://stash.ryanair.com"
 let g:weblink_host_url_prefix = "/projects/"
 
+
+"" Markdown preview 
+let g:mkdp_auto_close = 0
