@@ -45,3 +45,5 @@ antigen theme dracula/zsh dracula
 
 antigen apply
 
+# Custom aliases
+alias v=nvim

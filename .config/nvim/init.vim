@@ -27,7 +27,8 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'chrisbra/Colorizer'
 Plug 'davidhalter/jedi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'izifortune/weblink.vim'
+" Plug 'izifortune/weblink.vim'
+Plug 'dudyn5ky1/weblink.vim'
 
 call plug#end()
 
@@ -50,8 +51,13 @@ set encoding=UTF-8
 set autoread
 set smartindent
 set cindent
+
 "" FZF config
 nnoremap <C-F> :Files<CR>
+nnoremap <C-G> :Ag<CR>
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+
 "" Disable arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
