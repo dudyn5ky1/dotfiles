@@ -23,12 +23,13 @@ Plug 'vim-test/vim-test'
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'dudyn5ky1/vim', { 'as': 'dracula' }
 Plug 'chrisbra/Colorizer'
 Plug 'davidhalter/jedi-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'izifortune/weblink.vim'
 Plug 'dudyn5ky1/weblink.vim'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
@@ -112,4 +113,23 @@ nmap <silent> \ge <Plug>(coc-definition)
 "" Weblink
 let g:weblink_host_url = "https://stash.ryanair.com"
 let g:weblink_host_url_prefix = "/projects/"
+
+"" Navigation between panes
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr())
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
+endfunction
+
+nnoremap <silent> <C-h> :call WinMove('h')<CR>
+nnoremap <silent> <C-j> :call WinMove('j')<CR>
+nnoremap <silent> <C-k> :call WinMove('k')<CR>
+nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
