@@ -227,6 +227,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>65EFC70B-0BEB-4606-A344-2F79AB9B2140</string>
+	<key>DisableWindowSizeSnap</key>
+	<true/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>GlobalKeyMap</key>
@@ -413,7 +415,7 @@
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>38 392 799 448 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>8 22 1662 984 0 0 1680 1050 </string>
+	<string>8 8 1664 998 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>212 106 570 472 0 0 1680 1050 </string>
 	<key>New Bookmarks</key>
@@ -1204,7 +1206,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>B63737A1-BD95-4780-ACB5-38B89D186EAE</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>11</integer>
+	<integer>19</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1975,6 +1977,8 @@
 	<string>/Users/dudynskyim/.config/iterm</string>
 	<key>Print In Black And White</key>
 	<true/>
+	<key>PromptOnQuit</key>
+	<false/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -1984,7 +1988,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-09-28T06:12:28Z</date>
+	<date>2020-10-06T06:19:31Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowPaneTitles</key>
