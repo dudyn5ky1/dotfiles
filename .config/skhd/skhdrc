@@ -41,3 +41,4 @@ shift + cmd - 0x0F : osascript -e 'tell application "Übersicht" to refresh widg
 
 cmd - l : ~/scripts/toggle_lang.sh
 cmd - m : ~/scripts/toggle_mic.sh
+cmd - h : ~/scripts/get_random_hash.sh
