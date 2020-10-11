@@ -5,3 +5,4 @@ cd ~/Library/ApplicationSupport/Übersicht/widgets/simple-bar
 git pull
 echo "simple-bar updated."
 
+~/scripts/setup_macos.sh
