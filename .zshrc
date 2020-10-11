@@ -49,4 +49,4 @@ antigen apply
 # Custom aliases
 alias v=nvim
 alias f="open /Applications/Firefox.app"
-
+alias update="~/scripts/update.sh"
