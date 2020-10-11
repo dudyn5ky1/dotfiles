@@ -50,3 +50,4 @@ antigen apply
 alias v=nvim
 alias f="open /Applications/Firefox.app"
 alias update="~/scripts/update.sh"
+alias rand_hash="~/scripts/get_random_hash.sh"
