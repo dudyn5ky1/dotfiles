@@ -1,5 +1,4 @@
 source ~/antigen.zsh
-source ~/.config/.theme
 
 alias pip=/usr/local/bin/pip3
 if command -v pyenv 1>/dev/null 2>&1; then
