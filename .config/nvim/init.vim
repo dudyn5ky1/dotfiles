@@ -139,3 +139,7 @@ nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
 "" Markdown preview 
 let g:mkdp_auto_close = 0
+
+"" Move lines up / down
+nnoremap <silent> <C-d> :move +1<CR>
+nnoremap <silent> <C-u> :move -2<CR>
