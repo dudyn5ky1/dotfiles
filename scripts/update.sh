@@ -6,3 +6,6 @@ git pull
 echo "simple-bar updated."
 
 ~/scripts/setup_macos.sh
+
+~/scripts/set_background.sh
+echo "Background updated."
