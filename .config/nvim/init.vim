@@ -12,6 +12,7 @@ Plug 'tranvansang/octave.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vimlab/split-term.vim'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -71,6 +72,9 @@ nmap <C-T> :split <bar> resize 20 <bar> terminal<CR>
 vmap <leader>y "*y
 nmap <leader>p "*p
 tnoremap jj <C-\><C-n>
+nnoremap U :move +1<CR>
+nnoremap D :move -2<CR>
+
 
 "" Eslint
 let g:ale_fixers = {
@@ -95,7 +99,6 @@ let g:ale_fix_on_save = 1
 syntax on
 set t_Co=256
 set cursorline
-set guifont=DroidSansMono_Nerd_Font:h11
 
 let g:test#javascript#runner = 'jest'
 
@@ -140,6 +143,6 @@ nnoremap <silent> <C-l> :call WinMove('l')<CR>
 "" Markdown preview 
 let g:mkdp_auto_close = 0
 
-"" Move lines up / down
-nnoremap <silent> <C-d> :move +1<CR>
-nnoremap <silent> <C-u> :move -2<CR>
+"" Nerd tree config
+let g:NERDTreeGitStatusUseNerdFonts = 1
+set guifont=DroidSansMono_Nerd_Font:h11
