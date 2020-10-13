@@ -7,3 +7,4 @@ tell application "System Events"
     end tell
 end tell
 END
+killall Dock
