@@ -31,6 +31,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'izifortune/weblink.vim'
 Plug 'dudyn5ky1/weblink.vim'
 Plug 'mhinz/vim-startify'
+Plug '907th/vim-auto-save'
+Plug 'tpope/vim-rails'
 
 call plug#end()
 
@@ -153,3 +155,7 @@ let g:startify_change_to_dir = 0
 "" Fix for wrong template literal highlight
 let g:jsx_ext_required = 0
 let g:javascript_plugin_flow = 0
+
+
+"" Autosave files 
+let g:auto_save = 1
