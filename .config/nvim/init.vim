@@ -14,10 +14,10 @@ Plug 'vimlab/split-term.vim'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'editorconfig/editorconfig-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
 Plug 'alvan/vim-closetag'
 Plug 'w0rp/ale'
 Plug 'vim-test/vim-test'
@@ -92,7 +92,6 @@ let g:gitgutter_override_sign_column_highlight = 0
 "" Open vim fugitive diff in vertical splits
 set diffopt+=vertical
 
-let NERDTreeShowHidden=1
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
 let g:ale_fix_on_save = 1
 
@@ -144,5 +143,13 @@ nnoremap <silent> <C-l> :call WinMove('l')<CR>
 let g:mkdp_auto_close = 0
 
 "" Nerd tree config
+let NERDTreeShowHidden=1
 let g:NERDTreeGitStatusUseNerdFonts = 1
 set guifont=DroidSansMono_Nerd_Font:h11
+
+"" Startify. Prevent changing working directory
+let g:startify_change_to_dir = 0
+
+"" Fix for wrong template literal highlight
+let g:jsx_ext_required = 0
+let g:javascript_plugin_flow = 0
