@@ -15,7 +15,7 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-" Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'alvan/vim-closetag'
@@ -33,6 +33,10 @@ Plug 'dudyn5ky1/weblink.vim'
 Plug 'mhinz/vim-startify'
 Plug '907th/vim-auto-save'
 Plug 'tpope/vim-rails'
+Plug 'dudyn5ky1/follow-markdown-links'
+" Plug '~/Desktop/projects/github/follow-markdown-links'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -159,3 +163,12 @@ let g:javascript_plugin_flow = 0
 
 "" Autosave files 
 let g:auto_save = 1
+
+"" Goyo / Limelight
+let g:limelight_conceal_ctermfg = 238
+function! s:goyo_leave()
+  hi Normal guibg=NONE ctermbg=NONE
+  Limelight!
+endfunction
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
