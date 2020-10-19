@@ -33,10 +33,13 @@ Plug 'dudyn5ky1/weblink.vim'
 Plug 'mhinz/vim-startify'
 Plug '907th/vim-auto-save'
 Plug 'tpope/vim-rails'
-Plug 'dudyn5ky1/follow-markdown-links'
-" Plug '~/Desktop/projects/github/follow-markdown-links'
+" Plug 'dudyn5ky1/follow-markdown-links'
+Plug '~/Desktop/projects/github/follow-markdown-links'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+" Plug 'lervag/vimtex'
+Plug 'SirVer/ultisnips'
+Plug 'mechatroner/rainbow_csv'
 
 call plug#end()
 
@@ -78,8 +81,8 @@ nmap <C-T> :split <bar> resize 20 <bar> terminal<CR>
 vmap <leader>y "*y
 nmap <leader>p "*p
 tnoremap jj <C-\><C-n>
-nnoremap U :move +1<CR>
-nnoremap D :move -2<CR>
+nnoremap D :move +1<CR>
+nnoremap U :move -2<CR>
 
 
 "" Eslint
@@ -172,3 +175,20 @@ function! s:goyo_leave()
 endfunction
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+"" Vim-tex 
+" set conceallevel=1
+" let g:tex_conceal='abdmg'
+" let g:tex_flavor = 'latex'
+
+
+"" Snippets 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories=["vim-snippets"]
+
+"" Spellcheck
+setlocal spell
+set spelllang=en_gb,pl,uk,ru
+inoremap <C-y> <c-g>u<Esc>[s1z=`]a<c-g>u
