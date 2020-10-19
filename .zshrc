@@ -4,12 +4,14 @@ export PATH=/home/pi/.local/bin:$PATH
 tput cup $LINES
 
 IS_LINUX=$(uname -a | grep Linux)
-if [[ IS_LINUX ]]
+if [[ $IS_LINUX ]]
 then
   USR_PATH=/usr/bin
 else
   USR_PATH=/usr/local/bin
 fi
+
+echo $USR_PATH
 
 alias pip="$USR_PATH/pip3"
 if command -v pyenv 1>/dev/null 2>&1; then
