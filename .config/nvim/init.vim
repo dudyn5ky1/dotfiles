@@ -5,6 +5,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
@@ -64,7 +65,7 @@ set smartindent
 set cindent
 
 "" FZF config
-nnoremap <C-F> :Files<CR>
+nnoremap <C-F> :FZF<CR>
 nnoremap <C-G> :Ag<CR>
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
