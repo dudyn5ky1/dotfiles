@@ -1,12 +1,22 @@
 source ~/antigen.zsh
 
+export PATH=/home/pi/.local/bin:$PATH
 tput cup $LINES
-alias pip=/usr/local/bin/pip3
+
+IS_LINUX=$(uname -a | grep Linux)
+if [[ IS_LINUX ]]
+then
+  USR_PATH=/usr/bin
+else
+  USR_PATH=/usr/local/bin
+fi
+
+alias pip="$USR_PATH/pip3"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-export EDITOR=/usr/local/bin/nvim
-export VISUAL=/usr/local/bin/nvim
+export EDITOR="$USR_PATH/nvim"
+export VISUAL="$USR_PATH/nvim"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -51,3 +61,5 @@ alias v=nvim
 alias f="open /Applications/Firefox.app"
 alias update="~/scripts/update.sh"
 alias rand_hash="~/scripts/get_random_hash.sh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
