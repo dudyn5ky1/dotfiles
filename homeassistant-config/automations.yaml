@@ -1,0 +1,132 @@
+- id: '1603206743349'
+  alias: Washer finished washing
+  description: ''
+  trigger:
+  - type: turned_on
+    platform: device
+    device_id: bde14e5c12e311eba1155d15f124a74f
+    entity_id: binary_sensor.washer_wash_completed
+    domain: binary_sensor
+  condition:
+  - type: is_on
+    condition: device
+    device_id: bde14e5c12e311eba1155d15f124a74f
+    entity_id: binary_sensor.washer_wash_completed
+    domain: binary_sensor
+  action:
+  - service: notify.all_devices
+    data:
+      message: Прання закінчено
+  mode: single
+- id: '1603209865588'
+  alias: Roomba bin is full
+  description: ''
+  trigger:
+  - type: turned_on
+    platform: device
+    device_id: 80732b6c12b211ebbbbb7752db246fe4
+    entity_id: binary_sensor.roomba_bin_full
+    domain: binary_sensor
+  condition:
+  - type: is_on
+    condition: device
+    device_id: 80732b6c12b211ebbbbb7752db246fe4
+    entity_id: binary_sensor.roomba_bin_full
+    domain: binary_sensor
+  action:
+  - service: notify.all_devices
+    data:
+      message: Сміттєвий бак заповнений
+  mode: single
+- id: '1603209935579'
+  alias: Roomba finished cleaning
+  description: ''
+  trigger:
+  - platform: device
+    device_id: 80732b6c12b211ebbbbb7752db246fe4
+    domain: vacuum
+    entity_id: vacuum.roomba
+    type: docked
+  condition:
+  - condition: device
+    device_id: 80732b6c12b211ebbbbb7752db246fe4
+    domain: vacuum
+    entity_id: vacuum.roomba
+    type: is_docked
+  action:
+  - service: notify.all_devices
+    data:
+      message: Кінець прибирання
+  mode: single
+- id: '1603278683193'
+  alias: Washer error
+  description: ''
+  trigger:
+  - type: problem
+    platform: device
+    device_id: bde14e5c12e311eba1155d15f124a74f
+    entity_id: binary_sensor.washer_error_state
+    domain: binary_sensor
+  condition:
+  - type: is_problem
+    condition: device
+    device_id: bde14e5c12e311eba1155d15f124a74f
+    entity_id: binary_sensor.washer_error_state
+    domain: binary_sensor
+  action:
+  - service: notify.all_devices
+    data:
+      message: Помилка пральної машини
+  mode: single
+- id: '1603279222225'
+  alias: Roomba is stuck
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{%if is_state_attr(''vacuum.roomba'', ''status'', ''Stuck'')
+      %}true{%endif%}'
+  condition: []
+  action:
+  - service: notify.all_devices
+    data:
+      message: Пилосос застряг
+  mode: single
+- id: '1603279985314'
+  alias: Turn on TV when turning on PS4
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.playstation_4
+    to: idle
+    from: standby
+  condition: []
+  action:
+  - service: media_player.turn_on
+    data: {}
+    entity_id: media_player.living_room_tv
+  - condition: state
+    entity_id: media_player.living_room_tv
+    state: 'on'
+  - service: media_player.select_source
+    data:
+      source: HDMI 1
+    entity_id: media_player.living_room_tv
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.06
+    entity_id: media_player.living_room_tv
+  mode: single
+- id: '1603280914920'
+  alias: Turn off TV when turning off PS4
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.playstation_4
+    from: idle
+    to: standby
+  condition: []
+  action:
+  - service: media_player.turn_off
+    data: {}
+    entity_id: media_player.living_room_tv
+  mode: single
