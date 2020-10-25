@@ -41,6 +41,7 @@ Plug 'junegunn/limelight.vim'
 " Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 Plug 'mechatroner/rainbow_csv'
+Plug 'vim-ruby/vim-ruby'
 
 call plug#end()
 
@@ -88,7 +89,8 @@ nnoremap U :move -2<CR>
 
 "" Eslint
 let g:ale_fixers = {
- \ 'javascript': ['eslint', 'prettier']
+ \ 'javascript': ['eslint', 'prettier'],
+ \ 'ruby': ['rubocop']
  \ }
 
 "" Git gutter config
