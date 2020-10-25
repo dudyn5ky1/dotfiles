@@ -1,0 +1,5 @@
+all:
+  name: "All"
+  entities:
+    - person.maksym
+    - person.maryna

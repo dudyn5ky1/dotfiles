@@ -2,7 +2,7 @@
 title: Home
 views:
   - path: default_view
-    title: Home
+    title: Головна
     badges:
       - entity: person.maksym
       - entity: person.maryna
@@ -23,164 +23,272 @@ views:
               top: 50%
               left: 15%
               transform: scale(0.8)
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Темп. (Зал)
+            entities:
+              - sensor.mitemp_bt_temperature
+            show:
+              icon: true
+              fill: false
+            height: 35
+            color_thresholds:
+              - value: 17
+                color: "#ff5555"
+              - value: 18
+                color: "#50fa7b"
+              - value: 26
+                color: "#ff5555"
+            style: |
+              ha-card {
+                margin-right: 5px;
+                margin-bottom: 5px;
+              }
+          - type: custom:mini-graph-card
+            name: Вологість (Зал)
+            entities:
+              - sensor.mitemp_bt_humidity
+            show:
+              icon: true
+              fill: false
+            height: 35
+            color_thresholds:
+              - value: 40
+                color: "#ff5555"
+              - value: 41
+                color: "#50fa7b"
+              - value: 61
+                color: "#ff5555"
+            style: |
+              ha-card {
+                margin-right: 5px;
+                margin-bottom: 5px;
+              }
       - type: vertical-stack
         cards:
-          - artwork: cover
+          - type: entities
+            title: "Roomba"
+            entities:
+              - entity: vacuum.roomba
+                name: "Статус"
+              - entity: sensor.roomba_battery_level
+                name: "Батарея"
+              - entity: sensor.roomba_bin_status
+
+              - entity: vacuum.roomba
+                name: "Почати прибирання"
+                tap_action:
+                  action: call-service
+                  service: vacuum.start
+                  service_data:
+                    entity_id: vacuum.roomba
+              - entity: vacuum.roomba
+                name: "Закінчити прибирання"
+                tap_action:
+                  action: call-service
+                  service: vacuum.stop
+                  service_data:
+                    entity_id: vacuum.roomba
+
+          - type: media-control
+            entity: media_player.living_room_tv
+          - type: media-control
             entity: media_player.playstation_4
-            group: false
-            hide:
-              controls: true
-              power_state: true
-              source: true
-              volume: true
-            info: short
-            source: icon
-            type: 'custom:mini-media-player'
-          - card:
-              cards:
-                - cards:
-                    - aspect_ratio: 3/1
-                      entity: media_player.playstation_4
-                      hold_action:
-                        action: more-info
-                      icon: 'custom:ps4-share'
-                      show_icon: true
-                      show_name: false
-                      tap_action:
-                        action: call-service
-                        service: ps4.send_command
-                        service_data:
-                          command: share
-                          entity_id: media_player.playstation_4
-                      type: 'custom:button-card'
-                    - aspect_ratio: 3/1
-                      entity: media_player.playstation_4
-                      hold_action:
-                        action: more-info
-                      icon: 'custom:ps4-up'
-                      show_icon: true
-                      show_name: false
-                      style:
-                        height: 40px
-                      tap_action:
-                        action: call-service
-                        service: ps4.send_command
-                        service_data:
-                          command: up
-                          entity_id: media_player.playstation_4
-                      type: 'custom:button-card'
-                    - aspect_ratio: 3/1
-                      entity: media_player.playstation_4
-                      hold_action:
-                        action: more-info
-                      icon: 'custom:ps4-options'
-                      show_icon: true
-                      show_name: false
-                      tap_action:
-                        action: call-service
-                        service: ps4.send_command
-                        service_data:
-                          command: option
-                          entity_id: media_player.playstation_4
-                      type: 'custom:button-card'
-                  type: horizontal-stack
-                - cards:
-                    - aspect_ratio: 3/1
-                      entity: media_player.playstation_4
-                      hold_action:
-                        action: more-info
-                      icon: 'custom:ps4-left'
-                      show_icon: true
-                      show_name: false
-                      tap_action:
-                        action: call-service
-                        service: ps4.send_command
-                        service_data:
-                          command: left
-                          entity_id: media_player.playstation_4
-                      type: 'custom:button-card'
-                    - aspect_ratio: 3/1
-                      entity: media_player.playstation_4
-                      hold_action:
-                        action: more-info
-                      icon: 'custom:ps4-x'
-                      show_icon: true
-                      show_name: false
-                      tap_action:
-                        action: call-service
-                        service: ps4.send_command
-                        service_data:
-                          command: enter
-                          entity_id: media_player.playstation_4
-                      type: 'custom:button-card'
-                    - aspect_ratio: 3/1
-                      entity: media_player.playstation_4
-                      hold_action:
-                        action: more-info
-                      icon: 'custom:ps4-right'
-                      show_icon: true
-                      show_name: false
-                      tap_action:
-                        action: call-service
-                        service: ps4.send_command
-                        service_data:
-                          command: right
-                          entity_id: media_player.playstation_4
-                      type: 'custom:button-card'
-                  type: horizontal-stack
-                - cards:
-                    - aspect_ratio: 3/1
-                      entity: media_player.playstation_4
-                      hold_action:
-                        action: more-info
-                      show_icon: true
-                      show_name: false
-                      tap_action:
-                        action: call-service
-                        service: ps4.send_command
-                        service_data:
-                          command: ps
-                          entity_id: media_player.playstation_4
-                      type: 'custom:button-card'
-                    - aspect_ratio: 3/1
-                      entity: media_player.playstation_4
-                      hold_action:
-                        action: more-info
-                      icon: 'custom:ps4-down'
-                      show_icon: true
-                      show_name: false
-                      tap_action:
-                        action: call-service
-                        service: ps4.send_command
-                        service_data:
-                          command: down
-                          entity_id: media_player.playstation_4
-                      type: 'custom:button-card'
-                    - aspect_ratio: 3/1
-                      entity: media_player.playstation_4
-                      hold_action:
-                        action: more-info
-                      icon: 'custom:ps4-o'
-                      show_icon: true
-                      show_name: false
-                      tap_action:
-                        action: call-service
-                        service: ps4.send_command
-                        service_data:
-                          command: back
-                          entity_id: media_player.playstation_4
-                      type: 'custom:button-card'
-                  type: horizontal-stack
-              type: vertical-stack
-            conditions:
-              - entity: media_player.playstation_4
-                state_not: standby
-            type: conditional
-      - type: media-control
-        entity: media_player.living_room_tv
-      - type: entities
-        entities:
-          - vacuum.roomba
-        title: Vacuum
+          - type: vertical-stack
+            cards:
+              - artwork: cover
+                entity: media_player.playstation_4
+                group: false
+                hide:
+                  controls: true
+                  power_state: true
+                  source: true
+                  volume: true
+                info: short
+                source: icon
+                type: 'custom:mini-media-player'
+              - card:
+                  cards:
+                    - cards:
+                        - aspect_ratio: 3/1
+                          entity: media_player.playstation_4
+                          hold_action:
+                            action: more-info
+                          icon: 'custom:ps4-share'
+                          show_icon: true
+                          show_name: false
+                          tap_action:
+                            action: call-service
+                            service: ps4.send_command
+                            service_data:
+                              command: share
+                              entity_id: media_player.playstation_4
+                          type: 'custom:button-card'
+                        - aspect_ratio: 3/1
+                          entity: media_player.playstation_4
+                          hold_action:
+                            action: more-info
+                          icon: 'custom:ps4-up'
+                          show_icon: true
+                          show_name: false
+                          style:
+                            height: 40px
+                          tap_action:
+                            action: call-service
+                            service: ps4.send_command
+                            service_data:
+                              command: up
+                              entity_id: media_player.playstation_4
+                          type: 'custom:button-card'
+                        - aspect_ratio: 3/1
+                          entity: media_player.playstation_4
+                          hold_action:
+                            action: more-info
+                          icon: 'custom:ps4-options'
+                          show_icon: true
+                          show_name: false
+                          tap_action:
+                            action: call-service
+                            service: ps4.send_command
+                            service_data:
+                              command: option
+                              entity_id: media_player.playstation_4
+                          type: 'custom:button-card'
+                      type: horizontal-stack
+                    - cards:
+                        - aspect_ratio: 3/1
+                          entity: media_player.playstation_4
+                          hold_action:
+                            action: more-info
+                          icon: 'custom:ps4-left'
+                          show_icon: true
+                          show_name: false
+                          tap_action:
+                            action: call-service
+                            service: ps4.send_command
+                            service_data:
+                              command: left
+                              entity_id: media_player.playstation_4
+                          type: 'custom:button-card'
+                        - aspect_ratio: 3/1
+                          entity: media_player.playstation_4
+                          hold_action:
+                            action: more-info
+                          icon: 'custom:ps4-x'
+                          show_icon: true
+                          show_name: false
+                          tap_action:
+                            action: call-service
+                            service: ps4.send_command
+                            service_data:
+                              command: enter
+                              entity_id: media_player.playstation_4
+                          type: 'custom:button-card'
+                        - aspect_ratio: 3/1
+                          entity: media_player.playstation_4
+                          hold_action:
+                            action: more-info
+                          icon: 'custom:ps4-right'
+                          show_icon: true
+                          show_name: false
+                          tap_action:
+                            action: call-service
+                            service: ps4.send_command
+                            service_data:
+                              command: right
+                              entity_id: media_player.playstation_4
+                          type: 'custom:button-card'
+                      type: horizontal-stack
+                    - cards:
+                        - aspect_ratio: 3/1
+                          entity: media_player.playstation_4
+                          hold_action:
+                            action: more-info
+                          show_icon: true
+                          show_name: false
+                          tap_action:
+                            action: call-service
+                            service: ps4.send_command
+                            service_data:
+                              command: ps
+                              entity_id: media_player.playstation_4
+                          type: 'custom:button-card'
+                        - aspect_ratio: 3/1
+                          entity: media_player.playstation_4
+                          hold_action:
+                            action: more-info
+                          icon: 'custom:ps4-down'
+                          show_icon: true
+                          show_name: false
+                          tap_action:
+                            action: call-service
+                            service: ps4.send_command
+                            service_data:
+                              command: down
+                              entity_id: media_player.playstation_4
+                          type: 'custom:button-card'
+                        - aspect_ratio: 3/1
+                          entity: media_player.playstation_4
+                          hold_action:
+                            action: more-info
+                          icon: 'custom:ps4-o'
+                          show_icon: true
+                          show_name: false
+                          tap_action:
+                            action: call-service
+                            service: ps4.send_command
+                            service_data:
+                              command: back
+                              entity_id: media_player.playstation_4
+                          type: 'custom:button-card'
+                      type: horizontal-stack
+                  type: vertical-stack
+                conditions:
+                  - entity: media_player.playstation_4
+                    state_not: standby
+                type: conditional
+
       - type: weather-forecast
         entity: weather.home
+      - type: 'custom:aftership-card'
+        entity: sensor.aftership
+        title: "Почта"
+  - path: system_dashboard
+    title: System dashboard
+    cards:
+      - type: entities
+        title: "Main"
+        entities:
+          - entity: binary_sensor.rpi_power_status
+            name: "Raspberry Power Status"
+          - entity: binary_sensor.remote_ui
+            name: "HomeAssistant Remote UI"
+          - entity: sensor.processor_use
+            name: "CPU Usage"
+          - entity: sensor.processor_temperature
+            name: "CPU Temperature"
+          - entity: sensor.disk_use_percent
+            name: "Disk usage"
+          - entity: sensor.pi_hole_ads_blocked_today
+            name: "Ads blocked today"
+          - entity: sensor.pi_hole_ads_percentage_blocked_today
+            name: "Ads % blocked today"
+
+      - type: horizontal-stack
+        title: "Internet"
+        cards:
+          - type: gauge
+            name: "received"
+            entity: sensor.compal_broadband_networks_inc_ch7465lg_kib_s_received
+          - type: gauge
+            name: "sent"
+            entity: sensor.compal_broadband_networks_inc_ch7465lg_kib_s_sent
+      - type: entities
+        title: "Battery"
+        entities:
+          - entity: sensor.iphone_md_battery_level
+            name: "Maksym's iPhone"
+          - entity: sensor.iphone_battery_level_2
+            name: "Maryna's iPhone"
+

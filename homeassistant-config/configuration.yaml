@@ -17,15 +17,24 @@ notify:
     services:
       - service: mobile_app_iphone
       - service: mobile_app_iphone_md
+      - service: living_room_tv
 
 lovelace:
   mode: yaml
   resources:
     - url: /local/custom_icons.js
       type: module
+    - url: /local/custom_icons.js
+      type: module
     - url: /local/community/mini-media-player/mini-media-player-bundle.js
       type: module
     - url: /local/community/button-card/button-card.js
+      type: module
+    - url: /local/community/mini-graph-card/mini-graph-card-bundle.js
+      type: module
+    - url: /local/community/lovelace-roomba-vacuum-card/roomba-vacuum-card.js
+      type: module
+    - url: /local/community/aftership-card/aftership-card.js
       type: module
 
 zone:
@@ -38,11 +47,23 @@ zone:
 # Weather station
 sensor:
   - platform: mitemp_bt
-    mac: !secret xiaomi_weather_mac 
+    mac: !secret xiaomi_weather_mac
     monitored_conditions:
       - temperature
       - humidity
       - battery
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+      - type: processor_use
+      - type: processor_temperature
+  - platform: aftership
+    api_key: !secret aftership_api_key
+  - platform: template
+    sensors:
+      roomba_bin_status:
+        friendly_name: "Мусорний бак"
+        value_template: "{% if is_state('binary_sensor.roomba_bin_full', 'on') %}Заповнений{% else %}Порожній{% endif %}"
 
 # Roomba vacuum
 roomba:
@@ -57,10 +78,8 @@ webostv:
   host: !secret lg_tv_host
   name: Living Room TV
   turn_on_action:
-    service: wake_on_lan.send_magic_packet  
+    service: wake_on_lan.send_magic_packet
     data:
       mac: !secret lg_tv_mac
 
 media_player:
-
-
