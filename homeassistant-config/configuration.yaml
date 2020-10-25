@@ -1,0 +1,66 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+notify:
+  - name: ALL_DEVICES
+    platform: group
+    services:
+      - service: mobile_app_iphone
+      - service: mobile_app_iphone_md
+
+lovelace:
+  mode: yaml
+  resources:
+    - url: /local/custom_icons.js
+      type: module
+    - url: /local/community/mini-media-player/mini-media-player-bundle.js
+      type: module
+    - url: /local/community/button-card/button-card.js
+      type: module
+
+zone:
+  - name: Home
+    latitude: !secret home_lat
+    longitude: !secret home_lng
+    radius: 50
+    icon: mdi:home-circle
+
+# Weather station
+sensor:
+  - platform: mitemp_bt
+    mac: !secret xiaomi_weather_mac 
+    monitored_conditions:
+      - temperature
+      - humidity
+      - battery
+
+# Roomba vacuum
+roomba:
+  - host: !secret roomba_host
+    blid: !secret roomba_blid
+    password: !secret roomba_password
+
+# TV
+wake_on_lan:
+
+webostv:
+  host: !secret lg_tv_host
+  name: Living Room TV
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet  
+    data:
+      mac: !secret lg_tv_mac
+
+media_player:
+
+
