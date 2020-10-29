@@ -41,7 +41,7 @@ zone:
   - name: Home
     latitude: !secret home_lat
     longitude: !secret home_lng
-    radius: 50
+    radius: 75
     icon: mdi:home-circle
 
 # Weather station

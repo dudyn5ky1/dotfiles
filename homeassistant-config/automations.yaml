@@ -122,6 +122,9 @@
   - platform: state
     entity_id: media_player.playstation_4
     to: standby
+  - platform: state
+    entity_id: media_player.playstation_4
+    to: unknown
   condition:
   - condition: state
     entity_id: media_player.living_room_tv
