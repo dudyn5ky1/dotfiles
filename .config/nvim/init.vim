@@ -32,16 +32,17 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'izifortune/weblink.vim'
 Plug 'dudyn5ky1/weblink.vim'
 Plug 'mhinz/vim-startify'
-Plug '907th/vim-auto-save'
+" Plug '907th/vim-auto-save'
 Plug 'tpope/vim-rails'
 " Plug 'dudyn5ky1/follow-markdown-links'
-Plug '~/Desktop/projects/github/follow-markdown-links'
+" Plug '~/Desktop/projects/github/follow-markdown-links'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 Plug 'mechatroner/rainbow_csv'
 Plug 'vim-ruby/vim-ruby'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -64,6 +65,7 @@ set encoding=UTF-8
 set autoread
 set smartindent
 set cindent
+
 
 "" FZF config
 nnoremap <C-F> :FZF<CR>
@@ -151,7 +153,7 @@ nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
-"" Markdown preview 
+"" Markdown preview
 let g:mkdp_auto_close = 0
 
 "" Nerd tree config
@@ -167,8 +169,8 @@ let g:jsx_ext_required = 0
 let g:javascript_plugin_flow = 0
 
 
-"" Autosave files 
-let g:auto_save = 1
+"" Autosave files
+" let g:auto_save = 1
 
 "" Goyo / Limelight
 let g:limelight_conceal_ctermfg = 238
@@ -179,13 +181,13 @@ endfunction
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-"" Vim-tex 
+"" Vim-tex
 " set conceallevel=1
 " let g:tex_conceal='abdmg'
 " let g:tex_flavor = 'latex'
 
 
-"" Snippets 
+"" Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -195,3 +197,9 @@ let g:UltiSnipsSnippetDirectories=["vim-snippets"]
 setlocal spell
 set spelllang=en_gb,pl,uk,ru
 inoremap <C-y> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+"" Vim wiki
+set nocompatible
+filetype plugin on
+let g:vimwiki_list = [{'path': '~/Documents/notes',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
