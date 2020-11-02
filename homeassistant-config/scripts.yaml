@@ -1,0 +1,27 @@
+fifa:
+  alias: FIFA
+  sequence:
+  - service: media_player.turn_on
+    data: {}
+    entity_id: media_player.living_room_tv
+  - service: media_player.turn_on
+    data: {}
+    entity_id: media_player.playstation_4
+  - wait_for_trigger:
+    - platform: state
+      entity_id: media_player.living_room_tv
+      to: 'on'
+    - platform: state
+      entity_id: media_player.playstation_4
+      to: idle
+    continue_on_timeout: true
+    timeout: '15'
+  - service: media_player.select_source
+    data:
+      source: HDMI 1
+    entity_id: media_player.living_room_tv
+  - service: media_player.select_source
+    data:
+      source: EA SPORTS™ FIFA 20 Ultimate Edition
+    entity_id: media_player.playstation_4
+  mode: single

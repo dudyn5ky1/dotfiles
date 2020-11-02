@@ -5,6 +5,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
@@ -15,7 +16,7 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-" Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'alvan/vim-closetag'
@@ -31,6 +32,16 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'izifortune/weblink.vim'
 Plug 'dudyn5ky1/weblink.vim'
 Plug 'mhinz/vim-startify'
+Plug '907th/vim-auto-save'
+Plug 'tpope/vim-rails'
+" Plug 'dudyn5ky1/follow-markdown-links'
+Plug '~/Desktop/projects/github/follow-markdown-links'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+" Plug 'lervag/vimtex'
+Plug 'SirVer/ultisnips'
+Plug 'mechatroner/rainbow_csv'
+Plug 'vim-ruby/vim-ruby'
 
 call plug#end()
 
@@ -55,7 +66,7 @@ set smartindent
 set cindent
 
 "" FZF config
-nnoremap <C-F> :Files<CR>
+nnoremap <C-F> :FZF<CR>
 nnoremap <C-G> :Ag<CR>
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
@@ -72,13 +83,14 @@ nmap <C-T> :split <bar> resize 20 <bar> terminal<CR>
 vmap <leader>y "*y
 nmap <leader>p "*p
 tnoremap jj <C-\><C-n>
-nnoremap U :move +1<CR>
-nnoremap D :move -2<CR>
+nnoremap D :move +1<CR>
+nnoremap U :move -2<CR>
 
 
 "" Eslint
 let g:ale_fixers = {
- \ 'javascript': ['eslint', 'prettier']
+ \ 'javascript': ['eslint', 'prettier'],
+ \ 'ruby': ['rubocop']
  \ }
 
 "" Git gutter config
@@ -153,3 +165,33 @@ let g:startify_change_to_dir = 0
 "" Fix for wrong template literal highlight
 let g:jsx_ext_required = 0
 let g:javascript_plugin_flow = 0
+
+
+"" Autosave files 
+let g:auto_save = 1
+
+"" Goyo / Limelight
+let g:limelight_conceal_ctermfg = 238
+function! s:goyo_leave()
+  hi Normal guibg=NONE ctermbg=NONE
+  Limelight!
+endfunction
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+"" Vim-tex 
+" set conceallevel=1
+" let g:tex_conceal='abdmg'
+" let g:tex_flavor = 'latex'
+
+
+"" Snippets 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories=["vim-snippets"]
+
+"" Spellcheck
+setlocal spell
+set spelllang=en_gb,pl,uk,ru
+inoremap <C-y> <c-g>u<Esc>[s1z=`]a<c-g>u

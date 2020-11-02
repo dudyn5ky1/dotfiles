@@ -1,0 +1,148 @@
+
+title: Home
+views:
+  - path: default_view
+    title: Головна
+    badges:
+      - entity: person.maksym
+      - entity: person.maryna
+      - entity: sun.sun
+    cards:
+      - type: picture-elements
+        image: /local/floorplan.png
+        elements:
+          - type: state-badge
+            entity: sensor.mitemp_bt_temperature
+            style:
+              top: 50%
+              left: 28%
+              transform: scale(0.8)
+          - type: state-badge
+            entity: sensor.mitemp_bt_humidity
+            style:
+              top: 50%
+              left: 15%
+              transform: scale(0.8)
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Темп. (Зал)
+            entities:
+              - sensor.mitemp_bt_temperature
+            show:
+              icon: true
+              fill: false
+            height: 35
+            color_thresholds:
+              - value: 17
+                color: "#ff5555"
+              - value: 18
+                color: "#50fa7b"
+              - value: 26
+                color: "#ff5555"
+            style: |
+              ha-card {
+                margin-right: 5px;
+                margin-bottom: 5px;
+              }
+          - type: custom:mini-graph-card
+            name: Вологість (Зал)
+            entities:
+              - sensor.mitemp_bt_humidity
+            show:
+              icon: true
+              fill: false
+            height: 35
+            color_thresholds:
+              - value: 40
+                color: "#ff5555"
+              - value: 41
+                color: "#50fa7b"
+              - value: 61
+                color: "#ff5555"
+            style: |
+              ha-card {
+                margin-right: 5px;
+                margin-bottom: 5px;
+              }
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: "Roomba"
+            entities:
+              - entity: vacuum.roomba
+                name: "Статус"
+              - entity: sensor.roomba_battery_level
+                name: "Батарея"
+              - entity: sensor.roomba_bin_status
+
+              - entity: vacuum.roomba
+                name: "Почати прибирання"
+                tap_action:
+                  action: call-service
+                  service: vacuum.start
+                  service_data:
+                    entity_id: vacuum.roomba
+              - entity: vacuum.roomba
+                name: "Закінчити прибирання"
+                tap_action:
+                  action: call-service
+                  service: vacuum.stop
+                  service_data:
+                    entity_id: vacuum.roomba
+
+          - type: entities
+            entities:
+              - type: custom:mini-media-player
+                entity: media_player.living_room_tv
+                group: true
+              - type: custom:mini-media-player
+                entity: media_player.playstation_4
+                group: true
+                hide:
+                  volume: true
+                  controls: true
+
+      - type: weather-forecast
+        entity: weather.home
+      - type: 'custom:aftership-card'
+        entity: sensor.aftership
+        title: "Почта"
+  - path: system_dashboard
+    title: System dashboard
+    cards:
+      - type: entities
+        title: "Main"
+        entities:
+          - entity: binary_sensor.rpi_power_status
+            name: "Raspberry Power Status"
+          - entity: binary_sensor.remote_ui
+            name: "HomeAssistant Remote UI"
+          - entity: sensor.processor_use
+            name: "CPU Usage"
+          - entity: sensor.processor_temperature
+            name: "CPU Temperature"
+          - entity: sensor.disk_use_percent
+            name: "Disk usage"
+          - entity: sensor.pi_hole_ads_blocked_today
+            name: "Ads blocked today"
+          - entity: sensor.pi_hole_ads_percentage_blocked_today
+            name: "Ads % blocked today"
+
+      - type: horizontal-stack
+        title: "Internet"
+        cards:
+          - type: gauge
+            name: "received"
+            entity: sensor.compal_broadband_networks_inc_ch7465lg_kib_s_received
+          - type: gauge
+            name: "sent"
+            entity: sensor.compal_broadband_networks_inc_ch7465lg_kib_s_sent
+      - type: entities
+        title: "Battery"
+        entities:
+          - entity: sensor.iphone_md_battery_level
+            name: "Maksym's iPhone"
+          - entity: sensor.iphone_battery_level_2
+            name: "Maryna's iPhone"
+

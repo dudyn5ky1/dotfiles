@@ -1,0 +1,34 @@
+###################################
+# Docker Compose
+###################################
+
+version: '3'
+services:
+  rest980:
+    container_name: rest980
+    image: koalazak/rest980:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - BLID=3178480C92141660
+      - PASSWORD=:1:1562873889:ad3nmjycYG3gQEsm
+      - ROBOT_IP=192.168.0.31
+      - FIRMWARE_VERSION=2
+    restart: unless-stopped
+    networks:
+      - docker
+  php-nginx:
+    container_name: php-nginx
+    image: webhippie/php-nginx:latest
+    environment:
+      NGINX_WEBROOT: "/app"
+    volumes:
+      - ~/homeassistant-config/vacuum:/app
+    ports:
+      - "3001:8080"
+    restart: unless-stopped
+    networks:
+      - docker
+networks:
+  docker:
+    external: true
