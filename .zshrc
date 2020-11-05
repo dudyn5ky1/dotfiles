@@ -11,8 +11,6 @@ else
   USR_PATH=/usr/local/bin
 fi
 
-echo $USR_PATH
-
 alias pip="$USR_PATH/pip3"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -35,7 +33,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle timer
 antigen bundle z
 antigen bundle frontend-search
-# angular something 
+# angular something
 # caniuse something
 antigen bundle jira
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/jira
@@ -48,9 +46,9 @@ antigen bundle postgres
 # stoppost - stop psql server
 # startpost - start psql server
 
-antigen bundle rails 
+antigen bundle rails
 # rs - rails server
-# REP - RAILS_ENV=production 
+# REP - RAILS_ENV=production
 antigen bundle thefuck
 # ESC - ESC - fix previuos command line command
 
