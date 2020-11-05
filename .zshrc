@@ -1,5 +1,6 @@
 source ~/antigen.zsh
 
+DISABLE_MAGIC_FUNCTIONS=true
 export PATH=/home/pi/.local/bin:$PATH
 tput cup $LINES
 
