@@ -10,7 +10,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tranvansang/octave.vim'
-Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-'
 Plug 'vimlab/split-term.vim'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -197,9 +197,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetDirectories=["vim-snippets"]
 
 "" Spellcheck
-setlocal spell
-set spelllang=en_gb,pl,uk,ru
-inoremap <C-y> <c-g>u<Esc>[s1z=`]a<c-g>u
+" setlocal spell
+" set spelllang=en_gb,pl,uk,ru
+" inoremap <C-y> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 "" Vim wiki
 set nocompatible
@@ -207,3 +207,4 @@ filetype plugin on
 let g:vimwiki_list = [{'path': '~/Documents/notes',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
+set backspace=indent,eol,start
