@@ -39,7 +39,7 @@ Plug 'tpope/vim-rails'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " Plug 'lervag/vimtex'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'mechatroner/rainbow_csv'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
@@ -163,6 +163,9 @@ set guifont=DroidSansMono_Nerd_Font:h11
 
 "" Startify. Prevent changing working directory
 let g:startify_change_to_dir = 0
+let g:startify_custom_header_quotes = [
+        \ systemlist("~/scripts/get_quotes.sh")
+        \ ]
 
 "" Fix for wrong template literal highlight
 let g:jsx_ext_required = 0
@@ -203,3 +206,4 @@ set nocompatible
 filetype plugin on
 let g:vimwiki_list = [{'path': '~/Documents/notes',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
