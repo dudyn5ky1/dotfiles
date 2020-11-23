@@ -5,5 +5,5 @@ then
   osascript -e "tell application \"System Events\" to set volume input volume 100"
 else
   osascript -e "tell application \"System Events\" to set volume input volume 0"
-fi 
-osascript -e 'tell application "Übersicht" to refresh widget id "simple-bar-data-jsx"'
+fi
+osascript -e "tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-data-jsx\""

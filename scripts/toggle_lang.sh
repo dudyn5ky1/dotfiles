@@ -9,10 +9,10 @@ done
 if [[ $currentIndex -eq 3 ]]
 then
   xkbswitch -s $layouts[0]
-else 
+else
   nextIndex=$(($currentIndex+1))
   nextLang="${layouts[$nextIndex]}"
   xkbswitch -se $nextLang
 fi
-osascript -e 'tell application "Übersicht" to refresh widget id "simple-bar-data-jsx"'
+osascript -e "tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-data-jsx\""
 
