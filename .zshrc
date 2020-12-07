@@ -13,7 +13,7 @@ else
   USR_PATH=/usr/local/bin
 fi
 
-alias pip="$USR_PATH/pip3"
+alias pip=$(which pip3)
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
