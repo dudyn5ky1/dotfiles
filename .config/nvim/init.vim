@@ -43,6 +43,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'mechatroner/rainbow_csv'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
+Plug 'ianks/vim-tsx'
 
 call plug#end()
 
@@ -92,6 +93,7 @@ nnoremap U :move -2<CR>
 "" Eslint
 let g:ale_fixers = {
  \ 'javascript': ['eslint', 'prettier'],
+ \ 'typescript': ['tslint', 'prettier'],
  \ 'ruby': ['rubocop']
  \ }
 
