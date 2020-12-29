@@ -83,3 +83,11 @@ webostv:
       mac: !secret lg_tv_mac
 
 media_player:
+
+mqtt:
+  broker: localhost
+  port: 1883
+  username: muser
+  password: muser123
+  discovery: true
+  discovery_prefix: homeassistant

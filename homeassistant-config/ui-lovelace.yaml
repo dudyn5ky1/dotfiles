@@ -1,5 +1,5 @@
 
-title: Home
+title: "M Дім"
 views:
   - path: default_view
     title: Головна
@@ -108,6 +108,7 @@ views:
       - type: 'custom:aftership-card'
         entity: sensor.aftership
         title: "Почта"
+        show_add: false
   - path: system_dashboard
     title: System dashboard
     cards:
