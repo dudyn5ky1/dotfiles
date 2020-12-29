@@ -1,5 +1,7 @@
 source ~/antigen.zsh
+export NODE_OPTIONS=--max_old_space_size=8192
 
+DISABLE_MAGIC_FUNCTIONS=true
 export PATH=/home/pi/.local/bin:$PATH
 tput cup $LINES
 
@@ -11,9 +13,7 @@ else
   USR_PATH=/usr/local/bin
 fi
 
-echo $USR_PATH
-
-alias pip="$USR_PATH/pip3"
+alias pip=$(which pip3)
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -67,5 +67,6 @@ alias v=nvim
 alias f="open /Applications/Firefox.app"
 alias update="~/scripts/update.sh"
 alias rand_hash="~/scripts/get_random_hash.sh"
+alias get_quote="~/scripts/get_quotes.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
