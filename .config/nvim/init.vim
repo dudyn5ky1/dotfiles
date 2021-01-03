@@ -63,6 +63,7 @@ set smartindent
 set smarttab
 set noexpandtab
 set encoding=UTF-8
+set fileencoding=utf-8
 set autoread
 set smartindent
 set cindent
