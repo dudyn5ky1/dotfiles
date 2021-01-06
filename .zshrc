@@ -23,12 +23,6 @@ export VISUAL="$USR_PATH/nvim"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-sudo rm -f /usr/bin/node
-sudo rm -f /usr/bin/npm
-sudo ln -s $(which node) /usr/bin/
-sudo ln -s $(which npm) /usr/bin/
-
-# nvm use 14.13.0
 
 antigen use oh-my-zsh
 
