@@ -1,3 +1,5 @@
+. ~/.zshenv
+
 source ~/antigen.zsh
 export NODE_OPTIONS=--max_old_space_size=8192
 
@@ -5,6 +7,7 @@ DISABLE_MAGIC_FUNCTIONS=true
 export PATH=/home/pi/.local/bin:$PATH
 tput cup $LINES
 
+# Fix for Pi
 IS_LINUX=$(uname -a | grep Linux)
 if [[ $IS_LINUX ]]
 then
@@ -13,19 +16,18 @@ else
   USR_PATH=/usr/local/bin
 fi
 
-alias pip=$(which pip3)
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+# Set nvim as default editor
 export EDITOR="$USR_PATH/nvim"
 export VISUAL="$USR_PATH/nvim"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Lazy load NVM
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
 
 antigen use oh-my-zsh
 
+antigen bundle mroth/evalcache
+antigen bundle lukechilds/zsh-nvm
 antigen bundle git
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
@@ -56,6 +58,13 @@ antigen theme dracula/zsh dracula
 
 antigen apply
 
+# Python
+export PATH="$HOME/.pyenv/bin:$PATH"
+alias pip=$(which pip3)
+if command -v pyenv 1>/dev/null 2>&1; then
+  # eval "$(pyenv init -)"
+  _evalcache pyenv init -
+fi
 # Custom aliases
 alias v=nvim
 alias f="open /Applications/Firefox.app"
