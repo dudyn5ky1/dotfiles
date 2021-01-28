@@ -17,6 +17,7 @@ yabai -m config split_ratio 0.5
 yabai -m rule --add app="^BIG-IP" manage=off
 yabai -m rule --add app="HMA VPN" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="Simulator" manage=off
 yabai -m rule --add app="^Firefox$" title="^(Picture-in-Picture)$" manage=off
 yabai -m rule --add app="Mobile@Work" manage=off
 yabai -m rule --add app="Microsoft Teams" space=1
