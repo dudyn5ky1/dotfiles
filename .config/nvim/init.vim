@@ -73,6 +73,9 @@ set cindent
 "" Vim collaboration
 let g:instant_username = "maksym"
 
+"" Fix for copying to system clipboard
+:let $LANG='en_US.UTF-8'
+
 "" FZF config
 nnoremap <C-F> :FZF<CR>
 nnoremap <C-G> :Ag<CR>
