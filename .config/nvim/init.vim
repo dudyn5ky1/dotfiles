@@ -44,6 +44,7 @@ Plug 'mechatroner/rainbow_csv'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
 Plug 'ianks/vim-tsx'
+Plug 'jbyuki/instant.nvim'
 
 call plug#end()
 
@@ -69,9 +70,11 @@ set smartindent
 set cindent
 
 
+"" Vim collaboration
+let g:instant_username = "maksym"
+
 "" Fix for copying to system clipboard
 :let $LANG='en_US.UTF-8'
-
 
 "" FZF config
 nnoremap <C-F> :FZF<CR>

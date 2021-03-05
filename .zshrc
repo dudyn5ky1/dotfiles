@@ -2,6 +2,7 @@
 
 source ~/antigen.zsh
 export NODE_OPTIONS=--max_old_space_size=8192
+export NODE_EXTRA_CA_CERTS=~/zscaler.pem
 
 DISABLE_MAGIC_FUNCTIONS=true
 export PATH=/home/pi/.local/bin:$PATH
