@@ -99,6 +99,8 @@ nnoremap U :move -2<CR>
 let g:ale_fixers = {
  \ 'javascript': ['eslint', 'prettier'],
  \ 'typescript': ['tslint', 'prettier'],
+ \ 'javascript.jsx': ['eslint'],
+ \ 'typescript.jsx': ['eslint'],
  \ 'ruby': ['rubocop']
  \ }
 
