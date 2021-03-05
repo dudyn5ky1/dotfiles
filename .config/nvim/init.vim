@@ -44,6 +44,7 @@ Plug 'mechatroner/rainbow_csv'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
 Plug 'ianks/vim-tsx'
+Plug 'jbyuki/instant.nvim'
 
 call plug#end()
 
@@ -68,6 +69,9 @@ set autoread
 set smartindent
 set cindent
 
+
+"" Vim collaboration
+let g:instant_username = "maksym"
 
 "" FZF config
 nnoremap <C-F> :FZF<CR>
