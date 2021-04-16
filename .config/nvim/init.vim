@@ -220,3 +220,6 @@ let g:vimwiki_list = [{'path': '~/Documents/notes',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 set backspace=indent,eol,start
+
+"" Svelte (treat .svelte as .html)
+au! BufNewFile,BufRead *.svelte set ft=html
