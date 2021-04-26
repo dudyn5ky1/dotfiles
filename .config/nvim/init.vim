@@ -69,6 +69,8 @@ set autoread
 set smartindent
 set cindent
 
+"" Search and replace highlight
+set inccommand=nosplit
 
 "" Vim collaboration
 let g:instant_username = "maksym"
