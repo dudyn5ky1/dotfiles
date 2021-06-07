@@ -70,6 +70,8 @@ set autoread
 set smartindent
 set cindent
 
+"" Search and replace highlight
+set inccommand=nosplit
 
 "" Vim collaboration
 let g:instant_username = "maksym_work"
@@ -103,6 +105,8 @@ nnoremap U :move -2<CR>
 let g:ale_fixers = {
  \ 'javascript': ['eslint', 'prettier'],
  \ 'typescript': ['tslint', 'prettier'],
+ \ 'javascript.jsx': ['eslint'],
+ \ 'typescript.jsx': ['eslint'],
  \ 'ruby': ['rubocop']
  \ }
 
@@ -264,3 +268,6 @@ for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 EOF
+
+"" Svelte (treat .svelte as .html)
+au! BufNewFile,BufRead *.svelte set ft=html
