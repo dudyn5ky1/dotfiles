@@ -70,7 +70,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
   _evalcache pyenv init -
 fi
 # Custom aliases
-alias v=nvim
+alias v=~/nvim-osx64/bin/nvim
 alias f="open /Applications/Firefox.app"
 alias update="~/scripts/update.sh"
 alias rand_hash="~/scripts/get_random_hash.sh"
