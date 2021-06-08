@@ -77,3 +77,4 @@ alias rand_hash="~/scripts/get_random_hash.sh"
 alias get_quote="~/scripts/get_quotes.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f "/Users/md/.ghcup/env" ] && source "/Users/md/.ghcup/env" # ghcup-env
