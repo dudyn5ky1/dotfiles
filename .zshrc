@@ -2,7 +2,7 @@
 
 source ~/antigen.zsh
 export NODE_OPTIONS=--max_old_space_size=8192
-if [ -f /zscaler.pem ]; then
+if [ -f ~/zscaler.pem ]; then
   export NODE_EXTRA_CA_CERTS=~/zscaler.pem
 fi
 
@@ -21,8 +21,8 @@ else
 fi
 
 # Set nvim as default editor
-export EDITOR="$USR_PATH/nvim"
-export VISUAL="$USR_PATH/nvim"
+export EDITOR="~/nvim-osx64/bin/nvim"
+export VISUAL="~/nvim-osx64/bin/nvim"
 
 # Lazy load NVM
 export NVM_LAZY_LOAD=true
